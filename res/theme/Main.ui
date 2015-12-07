@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="Main" cloudDestinationProperty="Main" layout="BorderLayout" borderLayoutAbsoluteCenter="false" title="MyBank" >
+  <component type="Tabs" name="Tabs" cloudDestinationProperty="Tabs" >
+    <layoutConstraint value="Center" />
+    <custom name="titles" type="java.lang.String" array="true" dimensions="1" >
+      <str>ADD</str>
+      <str>VIEW</str>
+    </custom>
+    <component type="Container" name="Container" tabTitle="ADD" cloudDestinationProperty="Container" layout="BoxLayout" boxLayoutAxis="Y" >
+      <component type="TextField" name="latitude" cloudBoundProperty="text" cloudDestinationProperty="latitude" flatten="false" text="" hint="Latitude" >
+      </component>
+      <component type="TextField" name="longitude" cloudBoundProperty="text" cloudDestinationProperty="longitude" text="" hint="Longitude" >
+      </component>
+      <component type="TextField" name="area" cloudBoundProperty="text" cloudDestinationProperty="area" text="" hint="Area" >
+      </component>
+      <component type="Container" name="Container2" cloudDestinationProperty="Container2" layout="GridLayout" gridLayoutRows="1" gridLayoutColumns="2" >
+        <component type="ComboBox" name="type" cloudDestinationProperty="type" flatten="false" orientation="2" >
+          <stringItem value="ATM" />
+          <stringItem value="Office" />
+        </component>
+        <component type="ComboBox" name="bank" cloudDestinationProperty="Bank" >
+          <stringItem value="Ecobank" />
+          <stringItem value="Beige" />
+        </component>
+      </component>
+      <component type="Button" name="submit" cloudDestinationProperty="submit" text="ADD" >
+      </component>
+    </component>
+    <component type="Container" name="location" tabTitle="VIEW" cloudDestinationProperty="Container1" layout="BoxLayout" boxLayoutAxis="Y" >
+      <component type="MultiList" name="locations" cloudDestinationProperty="locations" >
+        <mapItems>
+          <stringItem key="lnglat" value="longitude, latitude" />
+          <stringItem key="bank_name" value="Area Name" />
+          <stringItem key="banktype" value="bank, type" />
+        </mapItems>
+        <custom name="name1" type="java.lang.String" value="bank_name" />
+        <custom name="name2" type="java.lang.String" value="banktype" />
+        <custom name="name3" type="java.lang.String" value="lnglat" />
+        <custom name="checkBox" type="java.lang.Boolean" value="false" />
+        <custom name="radioButton" type="java.lang.Boolean" value="false" />
+      </component>
+    </component>
+  </component>
+</component>
