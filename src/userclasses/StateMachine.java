@@ -70,6 +70,7 @@ public class StateMachine extends StateMachineBase {
         response = new String(connectionRequest.getResponseData());
         System.out.println(response);
         c.getComponentForm().revalidate();
+        populate_list();
     }
     
     
@@ -80,6 +81,13 @@ public class StateMachine extends StateMachineBase {
         cmp.setModel(new DefaultListModel(vector));
         //cmp.setModel(new com.codename1.ui.list.DefaultListModel(new String[] {"Item 1", "Item 2", "Item 3"}));
         return true;
+    }
+    
+    
+     private void populate_list() {
+        byte[] jsondata = display();
+        Vector vector = getResult(jsondata);
+        findLocations().setModel(new DefaultListModel(vector));
     }
 
 
